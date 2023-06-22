@@ -1,4 +1,4 @@
-APP_NAME = veloz-pdv
+APP_NAME = rapidinha-pdv
 
 
 .PHONY: release debug clean run install
