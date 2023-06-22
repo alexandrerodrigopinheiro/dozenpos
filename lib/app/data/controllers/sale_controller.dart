@@ -15,7 +15,7 @@ import 'package:whatsapp_share2/whatsapp_share2.dart';
 
 
 class SaleController extends GetxController {
-  static const int _maximum = 10;
+  static const int _maximum = 20;
   final SaleRepository _saleRepository = Get.find<SaleRepository>();
   final List<TextEditingController> _controllerPinput = [];
   final TextEditingController _controllerName = TextEditingController();
@@ -102,7 +102,7 @@ class SaleController extends GetxController {
 
     if (_index < _maximum) {
       int min = 1;
-      int max = 25;
+      int max = 50;
       Random random = Random();
       for (var i = 0; i < _maximum; i++) {
         _value[i] = min + random.nextInt(max);

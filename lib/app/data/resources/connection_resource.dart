@@ -1,6 +1,8 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:dio/io.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart' hide Response;
 import 'package:dozenpos/app/data/models/connection_model.dart';
@@ -20,6 +22,12 @@ class ConnectionResource {
     _dio.options.connectTimeout = ConstantsResource.connectTimeout;
     _dio.options.receiveTimeout = ConstantsResource.receiveTimeout;
     _dio.options.maxRedirects = ConstantsResource.maxAuthRetries;
+
+    // ignore: deprecated_member_use
+    (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate = (client) {
+      client.badCertificateCallback = (X509Certificate cert, String host, int port) => true;
+      return client;
+    };
   }
 
   Future<void> setConnection(ConnectionModel connectionModel) async => await _storage.write(key: _key, value: jsonEncode(connectionModel.toJson()));

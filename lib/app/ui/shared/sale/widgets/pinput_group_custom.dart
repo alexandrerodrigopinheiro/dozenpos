@@ -65,6 +65,58 @@ class PinputGroupCustom extends StatelessWidget {
             ),
           ],
         ),
+        const SizedBox(height: 10),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            PinputCustom(
+              controller: controllers[10],
+              keyboardType: TextInputType.number,
+            ),
+            PinputCustom(
+              controller: controllers[11],
+              keyboardType: TextInputType.number,
+            ),
+            PinputCustom(
+              controller: controllers[12],
+              keyboardType: TextInputType.number,
+            ),
+            PinputCustom(
+              controller: controllers[13],
+              keyboardType: TextInputType.number,
+            ),
+            PinputCustom(
+              controller: controllers[15],
+              keyboardType: TextInputType.number,
+            ),
+          ],
+        ),
+        const SizedBox(height: 10),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            PinputCustom(
+              controller: controllers[15],
+              keyboardType: TextInputType.number,
+            ),
+            PinputCustom(
+              controller: controllers[16],
+              keyboardType: TextInputType.number,
+            ),
+            PinputCustom(
+              controller: controllers[17],
+              keyboardType: TextInputType.number,
+            ),
+            PinputCustom(
+              controller: controllers[18],
+              keyboardType: TextInputType.number,
+            ),
+            PinputCustom(
+              controller: controllers[19],
+              keyboardType: TextInputType.number,
+            ),
+          ],
+        ),
       ],
     );
   }
