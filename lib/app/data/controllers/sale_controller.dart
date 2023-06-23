@@ -186,8 +186,11 @@ class SaleController extends GetxController {
       // Whats
       String message = '```';
       message += '''
+${ticket!.title!.toUpperCase()}
+${ticket.owner!.toUpperCase()}
+${Utils.toDateTime(DateTime.now(), link: ' ')}
 ------------------------------------
-CONCURSO: ${ticket!.contest!.toString()}
+CONCURSO: ${ticket.contest!.toString()}
 BILHETE: ${ticket.code!.toString()}
 DATA: ${Utils.toDate(ticket.date!)}
 HORA: ${ticket.time!}

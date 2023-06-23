@@ -73,7 +73,7 @@ class SalePage extends GetView<SaleController> {
                   PinputGroupCustom(controllers: controller.controllerPinput),
                   const SizedBox(height: 8),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.4,
+                    height: MediaQuery.of(context).size.height - 355,
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
