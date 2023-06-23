@@ -254,6 +254,9 @@ ${ticket.observation!.toUpperCase()}
       if (_controllerPhone.text.isNotEmpty && isInstalled!) {
         String message = '```';
         message += '''
+${ticket.title!.toUpperCase()}
+${ticket.owner!.toUpperCase()}
+${Utils.toDateTime(DateTime.now(), link: ' ')}
 ------------------------------------
 CONCURSO: ${ticket.contest!.toString()}
 BILHETE: ${ticket.code!.toString()}
