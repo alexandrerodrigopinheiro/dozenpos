@@ -16,13 +16,14 @@ class LoginPage extends GetView<LoginController> {
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            Center(
-              child: SafeArea(
+            SafeArea(
+              child: Center(
                 child: Container(
                   constraints: BoxConstraints(
                     maxWidth: 600,
                     minHeight: MediaQuery.of(context).size.height,
-                  ),                padding: const EdgeInsets.all(15.0),
+                  ),
+                  padding: const EdgeInsets.all(15.0),
                   child: Form(
                     key: _formKey,
                     child: Column(

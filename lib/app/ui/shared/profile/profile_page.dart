@@ -17,68 +17,72 @@ class ProfilePage extends GetView<ProfileController> {
         children: [
           SingleChildScrollView(
             child: SafeArea(
-              child: Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(15.0),
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Stack(
-                        children: [
-                          BackButton(
-                            color: GlobalColor.primaryColor,
-                            onPressed: controller.goBack,
-                          ),
-                          Container(
-                            alignment: Alignment.center,
-                            child: const Text(
-                              'rapidinha',
-                              style: TextStyle(
-                                color: GlobalColor.primaryColor,
-                                fontSize: 35,
-                                fontWeight: FontWeight.bold
+              child: Center(
+                child: Container(
+                  constraints: BoxConstraints(
+                    maxWidth: 600,
+                    minHeight: MediaQuery.of(context).size.height,
+                  ),                padding: const EdgeInsets.all(15.0),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Stack(
+                          children: [
+                            BackButton(
+                              color: GlobalColor.primaryColor,
+                              onPressed: controller.goBack,
+                            ),
+                            Container(
+                              alignment: Alignment.center,
+                              child: const Text(
+                                'rapidinha',
+                                style: TextStyle(
+                                  color: GlobalColor.primaryColor,
+                                  fontSize: 35,
+                                  fontWeight: FontWeight.bold
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                      const Text(
-                        'Altere sua senha',
-                        style: TextStyle(
-                          color: GlobalColor.secondaryColor,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400
+                          ],
                         ),
-                      ),
-                      const SizedBox(height: 15),
-                      TextFormFieldCustom(
-                        controller: controller.controllerPassword,
-                        hintText: 'Senha atual',
-                        keyboardType: TextInputType.visiblePassword,
-                        obscureText: true,
-                      ),
-                      const SizedBox(height: 15),
-                      TextFormFieldCustom(
-                        controller: controller.controllerNewPassword,
-                        hintText: 'Senha nova',
-                        keyboardType: TextInputType.visiblePassword,
-                        obscureText: true,
-                      ),
-                      const SizedBox(height: 15),
-                      TextFormFieldCustom(
-                        controller: controller.controllerConfirmationPassword,
-                        hintText: 'Confirme a senha',
-                        keyboardType: TextInputType.visiblePassword,
-                        obscureText: true,
-                      ),
-                      const SizedBox(height: 15),
-                      ButtonCustom(
-                        text: 'Salvar',
-                        onPressed: controller.onSave,
-                      ),
-                    ],
+                        const Text(
+                          'Altere sua senha',
+                          style: TextStyle(
+                            color: GlobalColor.secondaryColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400
+                          ),
+                        ),
+                        const SizedBox(height: 15),
+                        TextFormFieldCustom(
+                          controller: controller.controllerPassword,
+                          hintText: 'Senha atual',
+                          keyboardType: TextInputType.visiblePassword,
+                          obscureText: true,
+                        ),
+                        const SizedBox(height: 15),
+                        TextFormFieldCustom(
+                          controller: controller.controllerNewPassword,
+                          hintText: 'Senha nova',
+                          keyboardType: TextInputType.visiblePassword,
+                          obscureText: true,
+                        ),
+                        const SizedBox(height: 15),
+                        TextFormFieldCustom(
+                          controller: controller.controllerConfirmationPassword,
+                          hintText: 'Confirme a senha',
+                          keyboardType: TextInputType.visiblePassword,
+                          obscureText: true,
+                        ),
+                        const SizedBox(height: 15),
+                        ButtonCustom(
+                          text: 'Salvar',
+                          onPressed: controller.onSave,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

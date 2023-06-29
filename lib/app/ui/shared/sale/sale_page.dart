@@ -51,7 +51,7 @@ class SalePage extends GetView<SaleController> {
                           return Text(
                             'DATA: ${controller.date.value}',
                             style: const TextStyle(
-                              fontSize: 12,
+                              fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
                           );
@@ -60,7 +60,7 @@ class SalePage extends GetView<SaleController> {
                           return Text(
                             'CONCURSO: ${controller.code.value}',
                             style: const TextStyle(
-                              fontSize: 12,
+                              fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
                           );

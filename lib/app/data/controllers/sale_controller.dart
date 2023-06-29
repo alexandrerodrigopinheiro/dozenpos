@@ -144,7 +144,7 @@ BILHETE: ${ticket.code!.toString()}
 DATA: ${Utils.toDate(ticket.date!)}
 HORA: ${ticket.time!}
 VALOR: R\$${ticket.value!.toStringAsFixed(2).replaceAll('.', ',')}
-PREMIO: R\$${ticket.prize!.toStringAsFixed(2).replaceAll('.', ',')}'
+PREMIO: R\$${ticket.prize!.toStringAsFixed(2).replaceAll('.', ',')}
 ------------------------------------
 ${ticket.numbers!.toUpperCase().replaceAll(',', ' ')}
 ------------------------------------
