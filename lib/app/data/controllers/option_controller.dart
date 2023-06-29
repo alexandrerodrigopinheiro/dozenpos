@@ -1,6 +1,5 @@
 import 'dart:async';
 
-// import 'package:dozenpos/app/data/repositories/option_repository.dart';
 import 'package:dozenpos/app/routes/routes.dart';
 import 'package:dozenpos/app/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +7,6 @@ import 'package:get/get.dart';
 
 
 class OptionController extends GetxController {
-  // final OptionRepository _optionRepository = Get.find<OptionRepository>();
   final TextEditingController _controllerUsername = TextEditingController();
   final TextEditingController _controllerPassword = TextEditingController();
   final RxBool _isLoading = true.obs;
@@ -39,8 +37,6 @@ class OptionController extends GetxController {
   Future<void> financial() async => await Utils.goCleaning(Routes.financial);
 
   Future<void> profile() async => await Utils.goCleaning(Routes.profile);
-
-  Future<void> printer() async => await Utils.goCleaning(Routes.printer);
 
   get isLoading => _isLoading;
   get controllerUsername => _controllerUsername;

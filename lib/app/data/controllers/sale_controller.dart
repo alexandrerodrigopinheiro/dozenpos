@@ -3,15 +3,13 @@ import 'dart:math';
 
 import 'package:dozenpos/app/data/repositories/sale_repository.dart';
 import 'package:dozenpos/app/data/resources/constants_resource.dart';
-import 'package:dozenpos/app/data/resources/printer_resource.dart';
 import 'package:dozenpos/app/routes/routes.dart';
 import 'package:dozenpos/app/ui/shared/components/notifications.dart';
-import 'package:dozenpos/app/ui/shared/sale/prints/sale_print.dart';
 import 'package:dozenpos/app/utils/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:whatsapp_share2/whatsapp_share2.dart';
+import 'package:share_whatsapp/share_whatsapp.dart';
 
 
 class SaleController extends GetxController {
@@ -20,8 +18,6 @@ class SaleController extends GetxController {
   final List<TextEditingController> _controllerPinput = [];
   final TextEditingController _controllerName = TextEditingController();
   final TextEditingController _controllerPhone = TextEditingController();
-  final PrinterResource _printerResource = Get.find<PrinterResource>();
-  final SalePrint _salePrint = SalePrint();
   final List<int> _value = [];
   final RxBool _isLoading = true.obs;
   final RxString _code = ''.obs;
@@ -112,49 +108,7 @@ class SaleController extends GetxController {
     }
   }
 
-  Future<void> onPurchasePrint() async {
-   if (_isLoading.value) {
-      return;
-    }
-
-    _isLoading(true);
-
-    try {
-      String numbers = ' ';
-      for (int i = 0; i < _controllerPinput.length; i++) {
-        numbers += _controllerPinput[i].text.padLeft(2, '0').padRight(3, ' ');
-      }
-      numbers.trim();
-
-      if (_index != _maximum) {
-        throw Utils.onThrow('Preencha seu palpite');
-      }
-
-      final ticket = await _saleRepository.purchase(ConstantsResource.user!.id!, numbers, _controllerName.text, _controllerPhone.text);
-
-      // Clear
-      _controllerName.text = '';
-      _controllerPhone.text = '';
-
-      for (var i = 0; i < _maximum; i++) {
-        _value[i] = 0;
-        _controllerPinput[i].text = '';
-      }
-      _index = 0;
-
-      // Draw
-      _salePrint.draw(_printerResource, ticket!);
-
-      Notifications.success('SUCESSO', 'Aposta realizada com sucesso!');
-
-      _isLoading(false);
-    } catch (e) {
-      _isLoading(false);
-      Notifications.danger('ERRO', Utils.exception(e));
-    }
-  }
-
-  Future<void> onPurchaseWhats() async {
+  Future<void> onPurchase() async {
     if (_isLoading.value) {
       return;
     }
@@ -164,11 +118,6 @@ class SaleController extends GetxController {
     try {
       if (_controllerPhone.text.isEmpty) {
           throw Utils.onThrow('O telefone precisa estar preenchido com o DDD');
-      }
-
-      final isInstalled = await WhatsappShare.isInstalled(package: Package.businessWhatsapp);
-      if (!isInstalled!) {
-          throw Utils.onThrow('O whatsapp deve estar instalado');
       }
 
       String numbers = ' ';
@@ -208,80 +157,7 @@ ${ticket.observation!.toUpperCase()}
 
       final String phone = '55${_controllerPhone.text.toString().replaceAll('(', '').replaceAll(')', '').replaceAll(' ', '').replaceAll('-', '')}';
 
-      await WhatsappShare.share(text: message, phone: phone);
-
-      // Clear
-      _controllerName.text = '';
-      _controllerPhone.text = '';
-
-      for (var i = 0; i < _maximum; i++) {
-        _value[i] = 0;
-        _controllerPinput[i].text = '';
-      }
-      _index = 0;
-
-      Notifications.success('SUCESSO', 'Aposta realizada com sucesso!');
-
-      _isLoading(false);
-    } catch (e) {
-      _isLoading(false);
-      Notifications.danger('ERRO', Utils.exception(e));
-    }
-  }
-
-  Future<void> onPurchaseWhatsAndPrint() async {
-   if (_isLoading.value) {
-      return;
-    }
-
-    _isLoading(true);
-
-    try {
-      String numbers = ' ';
-      for (int i = 0; i < _controllerPinput.length; i++) {
-        numbers += _controllerPinput[i].text.padLeft(2, '0').padRight(3, ' ');
-      }
-      numbers.trim();
-
-      if (_index != _maximum) {
-        throw Utils.onThrow('Preencha seu palpite');
-      }
-
-      final ticket = await _saleRepository.purchase(ConstantsResource.user!.id!, numbers, _controllerName.text, _controllerPhone.text);
-
-      // Draw
-      _salePrint.draw(_printerResource, ticket!);
-
-      // Whats
-      final isInstalled = await WhatsappShare.isInstalled(package: Package.businessWhatsapp);
-
-      if (_controllerPhone.text.isNotEmpty && isInstalled!) {
-        String message = '```';
-        message += '''
-${ticket.title!.toUpperCase()}
-${ticket.owner!.toUpperCase()}
-${Utils.toDateTime(DateTime.now(), link: ' ')}
-------------------------------------
-CONCURSO: ${ticket.contest!.toString()}
-BILHETE: ${ticket.code!.toString()}
-DATA: ${Utils.toDate(ticket.date!)}
-HORA: ${ticket.time!}
-VALOR: R\$${ticket.value!.toStringAsFixed(2).replaceAll('.', ',')}
-PREMIO: R\$${ticket.prize!.toStringAsFixed(2).replaceAll('.', ',')}'
-------------------------------------
-${ticket.numbers!.toUpperCase().replaceAll(',', ' ')}
-------------------------------------
-N: ${ticket.name ?? ''}
-T: ${ticket.phone ?? ''}
-------------------------------------
-${ticket.observation!.toUpperCase()}
-''';
-        message += '```';
-
-        final String phone = '55${_controllerPhone.text.toString().replaceAll('(', '').replaceAll(')', '').replaceAll(' ', '').replaceAll('-', '')}';
-
-        await WhatsappShare.share(text: message, phone: phone);
-      }
+      shareWhatsapp.share(text: message, phone: phone);
 
       // Clear
       _controllerName.text = '';

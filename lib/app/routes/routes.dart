@@ -5,5 +5,4 @@ abstract class Routes {
   static const sale = "/sale";
   static const financial = "/financial";
   static const profile = "/profile";
-  static const printer = "/printer";
 }

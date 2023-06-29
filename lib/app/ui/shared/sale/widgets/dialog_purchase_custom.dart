@@ -4,16 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DialogPurchaseCustom {
-  final void Function()? onPurchasePrint;
-  final void Function()? onPurchaseWhats;
-  final void Function()? onPurchaseWhatsAndPrint;
+  final void Function()? onPurchase;
   final TextEditingController? controllerName;
   final TextEditingController? controllerPhone;
 
   DialogPurchaseCustom({
-    required this.onPurchasePrint,
-    required this.onPurchaseWhats,
-    required this.onPurchaseWhatsAndPrint,
+    required this.onPurchase,
     required this.controllerName, 
     required this.controllerPhone, 
   }) {
@@ -48,26 +44,10 @@ class DialogPurchaseCustom {
             ),
             const SizedBox(height: 15),
             ButtonCustom(
-              text: 'Comprar: Impr.',
+              text: 'Comprar',
               onPressed: () {
                 Get.back();
-                onPurchasePrint!();
-              },
-            ),
-            const SizedBox(height: 15),
-            ButtonCustom(
-              text: 'Comprar: Whats',
-              onPressed: () {
-                Get.back();
-                onPurchaseWhats!();
-              },
-            ),
-            const SizedBox(height: 15),
-            ButtonCustom(
-              text: 'Comprar: Impr. e Whats',
-              onPressed: () {
-                Get.back();
-                onPurchaseWhatsAndPrint!();
+                onPurchase!();
               },
             ),
           ],

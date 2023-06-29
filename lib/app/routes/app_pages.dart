@@ -3,14 +3,12 @@ import 'package:dozenpos/app/data/bindings/login_binding.dart';
 import 'package:dozenpos/app/data/bindings/option_binding.dart';
 import 'package:dozenpos/app/data/bindings/profile_binding.dart';
 import 'package:dozenpos/app/data/bindings/sale_binding.dart';
-import 'package:dozenpos/app/data/bindings/printer_binding.dart';
 import 'package:dozenpos/app/routes/routes.dart';
 import 'package:dozenpos/app/ui/shared/financial/financial_page.dart';
 import 'package:dozenpos/app/ui/shared/login/login_page.dart';
 import 'package:dozenpos/app/ui/shared/option/option_page.dart';
 import 'package:dozenpos/app/ui/shared/profile/profile_page.dart';
 import 'package:dozenpos/app/ui/shared/sale/sale_page.dart';
-import 'package:dozenpos/app/ui/shared/printer/printer_page.dart';
 import 'package:get/get.dart';
 
 class AppPages {
@@ -44,12 +42,6 @@ class AppPages {
       name: Routes.profile,
       page: () => ProfilePage(),
       binding: ProfileBinding(),
-      transition: Transition.cupertino,
-    ),
-    GetPage(
-      name: Routes.printer,
-      page: () => const PrinterPage(),
-      binding: PrinterBinding(),
       transition: Transition.cupertino,
     ),
   ];

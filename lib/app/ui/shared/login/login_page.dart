@@ -16,53 +16,58 @@ class LoginPage extends GetView<LoginController> {
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            SafeArea(
-              child: Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(15.0),
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        alignment: Alignment.center,
-                        child: const Text(
-                          'rapidinha pdv',
-                          style: TextStyle(
-                            color: GlobalColor.primaryColor,
-                            fontSize: 35,
-                            fontWeight: FontWeight.bold
+            Center(
+              child: SafeArea(
+                child: Container(
+                  constraints: BoxConstraints(
+                    maxWidth: 600,
+                    minHeight: MediaQuery.of(context).size.height,
+                  ),                padding: const EdgeInsets.all(15.0),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          alignment: Alignment.center,
+                          child: const Text(
+                            'rapidinha pdv',
+                            style: TextStyle(
+                              color: GlobalColor.primaryColor,
+                              fontSize: 35,
+                              fontWeight: FontWeight.bold
+                            ),
                           ),
                         ),
-                      ),
-                      const Text(
-                        'Entre com seu usuário e senha',
-                        style: TextStyle(
-                          color: GlobalColor.secondaryColor,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400
+                        const SizedBox(height: 15),
+                        const Text(
+                          'Entre com seu usuário e senha',
+                          style: TextStyle(
+                            color: GlobalColor.secondaryColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 15),
-                      TextFormFieldCustom(
-                        controller: controller.controllerUsername,
-                        hintText: 'Usuário',
-                        keyboardType: TextInputType.text,
-                      ),
-                      const SizedBox(height: 15),
-                      TextFormFieldCustom(
-                        controller: controller.controllerPassword,
-                        hintText: 'Senha',
-                        keyboardType: TextInputType.visiblePassword,
-                        obscureText: true,
-                      ),
-                      const SizedBox(height: 15),
-                      ButtonCustom(
-                        text: 'Entrar',
-                        onPressed: controller.onLogin,
-                      ),
-                    ],
+                        const SizedBox(height: 15),
+                        TextFormFieldCustom(
+                          controller: controller.controllerUsername,
+                          hintText: 'Usuário',
+                          keyboardType: TextInputType.text,
+                        ),
+                        const SizedBox(height: 15),
+                        TextFormFieldCustom(
+                          controller: controller.controllerPassword,
+                          hintText: 'Senha',
+                          keyboardType: TextInputType.visiblePassword,
+                          obscureText: true,
+                        ),
+                        const SizedBox(height: 15),
+                        ButtonCustom(
+                          text: 'Entrar',
+                          onPressed: controller.onLogin,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
