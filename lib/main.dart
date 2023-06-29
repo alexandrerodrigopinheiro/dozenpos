@@ -8,9 +8,12 @@ import 'package:wakelock/wakelock.dart';
 
 import 'app/routes/app_pages.dart';
 import 'app/routes/routes.dart';
-// import 'app/ui/themes/app_theme.dart';
 
-void main() async => runApp(const App());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await DependencyResource.onInit();
+  runApp(const App());
+}
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -18,12 +21,10 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      onInit: () async => await DependencyResource.onInit(),
       onReady: () async => await Wakelock.enable(),
       debugShowCheckedModeBanner: false,
       initialRoute: Routes.splash,
       initialBinding: SplashBinding(),
-      // theme: appThemeData(context),
       defaultTransition: Transition.cupertino,
       getPages: AppPages.pages,
       home: const SplashPage(),

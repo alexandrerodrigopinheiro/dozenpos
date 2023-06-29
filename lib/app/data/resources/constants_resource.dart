@@ -2,7 +2,7 @@
 import '../models/login_model.dart';
 
 class ConstantsResource {
-  static const String baseUrl = 'https://rapidinha.coinspiration.com.br/api';
+  static const String baseUrl = 'https://rapidinha.api.coinspiration.com.br/api';
   static const String appKey = 'e25388fde8290dc286a6164fa2d97e551b53498dcbf7bc378eb1f178';
   static const String accessToken = '';
   static const String appVersion = '1.0.0';
