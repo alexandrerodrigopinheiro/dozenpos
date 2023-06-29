@@ -43,7 +43,7 @@ class PrinterPage extends GetView<PrinterController> {
                       ],
                     ),
                     const Text(
-                      'Escolha o formate e a impressora',
+                      'Escolha o formato e a impressora',
                       style: TextStyle(
                         color: GlobalColor.secondaryColor,
                         fontSize: 16,
