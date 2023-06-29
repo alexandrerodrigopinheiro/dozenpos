@@ -6,6 +6,7 @@ class TicketModel {
   final String? date;
   final String? time;
   final double? value;
+  final double? prize;
   final String? numbers;
   final String? name;
   final String? phone;
@@ -19,6 +20,7 @@ class TicketModel {
     this.date,
     this.time,
     this.value,
+    this.prize,
     this.numbers,
     this.name,
     this.phone,
@@ -33,6 +35,7 @@ class TicketModel {
     date: json['date'],
     time: json['time'],
     value: json['value'].toDouble(),
+    prize: json['prize'].toDouble(),
     numbers: json['numbers'],
     name: json['name'],
     phone: json['phone'],
@@ -47,6 +50,7 @@ class TicketModel {
     'date': date,
     'time': time,
     'value': value,
+    'prize': prize,
     'numbers': numbers,
     'name': name,
     'phone': phone,

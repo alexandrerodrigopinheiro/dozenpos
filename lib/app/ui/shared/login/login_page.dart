@@ -28,7 +28,7 @@ class LoginPage extends GetView<LoginController> {
                       Container(
                         alignment: Alignment.center,
                         child: const Text(
-                          'rapidinha',
+                          'rapidinha pdv',
                           style: TextStyle(
                             color: GlobalColor.primaryColor,
                             fontSize: 35,

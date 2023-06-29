@@ -33,6 +33,7 @@ class SalePrint {
         _bluetooth.printCustom(Utils.toLine('data:', Utils.toDate(ticket.date!), 37), normal ? 1 : 0, 1, charset: 'windows-1250');
         _bluetooth.printCustom(Utils.toLine('hora:', ticket.time!, 37), normal ? 1 : 0, 1, charset: 'windows-1250');
         _bluetooth.printCustom(Utils.toLine('valor:', 'R\$${ticket.value!.toStringAsFixed(2).replaceAll('.', ',')}', 38), normal ? 1 : 0, 1, charset: 'windows-1250');
+        _bluetooth.printCustom(Utils.toLine('premio:', 'R\$${ticket.prize!.toStringAsFixed(2).replaceAll('.', ',')}', 39), normal ? 1 : 0, 1, charset: 'windows-1250');
         _bluetooth.printNewLine();
         _bluetooth.printCustom('--------------------------------', 0, 1, charset: 'windows-1250');
         _bluetooth.printCustom(ticket.numbers!.toUpperCase().replaceAll(',', ' '), normal ? 3 : 3, 1, charset: 'windows-1250');
