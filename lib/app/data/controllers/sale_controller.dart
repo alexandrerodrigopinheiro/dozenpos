@@ -166,8 +166,10 @@ class SaleController extends GetxController {
           throw Utils.onThrow('O telefone precisa estar preenchido com o DDD');
       }
 
-      final isInstalled = await WhatsappShare.isInstalled(package: Package.businessWhatsapp);
-      if (!isInstalled!) {
+      final isInstalledA = await WhatsappShare.isInstalled(package: Package.businessWhatsapp);
+      final isInstalledB = await WhatsappShare.isInstalled(package: Package.whatsapp);
+
+      if (!isInstalledA! && !isInstalledB!) {
           throw Utils.onThrow('O whatsapp deve estar instalado');
       }
 
@@ -253,9 +255,14 @@ ${ticket.observation!.toUpperCase()}
       _salePrint.draw(_printerResource, ticket!);
 
       // Whats
-      final isInstalled = await WhatsappShare.isInstalled(package: Package.businessWhatsapp);
+      final isInstalledA = await WhatsappShare.isInstalled(package: Package.businessWhatsapp);
+      final isInstalledB = await WhatsappShare.isInstalled(package: Package.whatsapp);
 
-      if (_controllerPhone.text.isNotEmpty && isInstalled!) {
+      if (!isInstalledA! && !isInstalledB!) {
+          throw Utils.onThrow('O whatsapp deve estar instalado');
+      }
+
+      if (_controllerPhone.text.isNotEmpty) {
         String message = '```';
         message += '''
 ${ticket.title!.toUpperCase()}
