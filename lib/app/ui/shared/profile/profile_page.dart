@@ -1,4 +1,5 @@
 import 'package:dozenpos/app/data/controllers/profile_controller.dart';
+import 'package:dozenpos/app/data/resources/constants_resource.dart';
 import 'package:dozenpos/app/ui/shared/widgets/button_custom.dart';
 import 'package:dozenpos/app/ui/shared/widgets/text_form_field_custom.dart';
 import 'package:dozenpos/app/ui/themes/app_theme.dart';
@@ -33,11 +34,11 @@ class ProfilePage extends GetView<ProfileController> {
                           ),
                           Container(
                             alignment: Alignment.center,
-                            child: const Text(
-                              'rapidinha',
-                              style: TextStyle(
+                            child: Text(
+                              ConstantsResource.appName.toUpperCase(),
+                              style: const TextStyle(
                                 color: GlobalColor.primaryColor,
-                                fontSize: 35,
+                                fontSize: 20,
                                 fontWeight: FontWeight.bold
                               ),
                             ),

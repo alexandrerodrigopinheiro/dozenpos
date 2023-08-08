@@ -1,4 +1,5 @@
 import 'package:dozenpos/app/data/controllers/login_controller.dart';
+import 'package:dozenpos/app/data/resources/constants_resource.dart';
 import 'package:dozenpos/app/ui/shared/widgets/button_custom.dart';
 import 'package:dozenpos/app/ui/shared/widgets/text_form_field_custom.dart';
 import 'package:dozenpos/app/ui/themes/app_theme.dart';
@@ -27,11 +28,11 @@ class LoginPage extends GetView<LoginController> {
                     children: [
                       Container(
                         alignment: Alignment.center,
-                        child: const Text(
-                          'rapidinha pdv',
-                          style: TextStyle(
+                        child: Text(
+                          ConstantsResource.appName.toUpperCase(),
+                          style: const TextStyle(
                             color: GlobalColor.primaryColor,
-                            fontSize: 35,
+                            fontSize: 20,
                             fontWeight: FontWeight.bold
                           ),
                         ),

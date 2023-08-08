@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:dozenpos/app/data/controllers/splash_controller.dart';
+import 'package:dozenpos/app/data/resources/constants_resource.dart';
 import 'package:dozenpos/app/routes/routes.dart';
 import 'package:dozenpos/app/ui/themes/app_theme.dart';
 import 'package:dozenpos/app/utils/utils.dart';
@@ -14,14 +15,14 @@ class SplashPage extends GetView<SplashController> {
   @override
   Widget build(BuildContext context) {
     Timer(const Duration(seconds: 2), () => Utils.goCleaning(Routes.login));
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: GlobalColor.primaryColor,
       body: Center(
         child: Text(
-          'rapidinha',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 35,
+          ConstantsResource.appName.toUpperCase(),
+          style: const TextStyle(
+            color: GlobalColor.primaryColor,
+            fontSize: 20,
             fontWeight: FontWeight.bold
           ),
         ),

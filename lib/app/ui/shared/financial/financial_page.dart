@@ -1,4 +1,5 @@
 import 'package:dozenpos/app/data/controllers/financial_controller.dart';
+import 'package:dozenpos/app/data/resources/constants_resource.dart';
 import 'package:dozenpos/app/ui/shared/widgets/button_custom.dart';
 import 'package:dozenpos/app/ui/shared/widgets/icon_button_custom.dart';
 import 'package:dozenpos/app/ui/shared/widgets/text_form_field_custom.dart';
@@ -31,12 +32,13 @@ class FinancialPage extends GetView<FinancialController> {
                         ),
                         Container(
                           alignment: Alignment.center,
-                          child: const Text(
-                            'rapidinha',
-                            style: TextStyle(
-                                color: GlobalColor.primaryColor,
-                                fontSize: 35,
-                                fontWeight: FontWeight.bold),
+                          child: Text(
+                            ConstantsResource.appName.toUpperCase(),
+                            style: const TextStyle(
+                              color: GlobalColor.primaryColor,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold
+                            ),
                           ),
                         ),
                       ],
@@ -73,10 +75,8 @@ class FinancialPage extends GetView<FinancialController> {
                               initialStartTime: DateTime.now(),
                               initialEndTime: DateTime.now(),
                               mode: DateTimeRangePickerMode.date,
-                              minimumTime:
-                                  DateTime.now().subtract(const Duration(days: 5)),
-                              maximumTime:
-                                  DateTime.now().add(const Duration(days: 25)),
+                              minimumTime: DateTime.now().subtract(const Duration(days: 365*100)),
+                              maximumTime: DateTime.now().add(const Duration(days: 365*100)),
                               use24hFormat: true,
                               onConfirm: controller.onConfirm,
                               onCancel: controller.onClean,

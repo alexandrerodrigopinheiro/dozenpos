@@ -1,5 +1,6 @@
 import 'package:dozenpos/app/data/controllers/printer_controller.dart';
 import 'package:dozenpos/app/data/models/print_type_model.dart';
+import 'package:dozenpos/app/data/resources/constants_resource.dart';
 import 'package:dozenpos/app/ui/shared/widgets/button_custom.dart';
 import 'package:dozenpos/app/ui/shared/widgets/dropdown_button_form_field_custom.dart';
 import 'package:dozenpos/app/ui/themes/app_theme.dart';
@@ -31,11 +32,11 @@ class PrinterPage extends GetView<PrinterController> {
                         ),
                         Container(
                           alignment: Alignment.center,
-                          child: const Text(
-                            'rapidinha',
-                            style: TextStyle(
+                          child: Text(
+                            ConstantsResource.appName.toUpperCase(),
+                            style: const TextStyle(
                               color: GlobalColor.primaryColor,
-                              fontSize: 35,
+                              fontSize: 20,
                               fontWeight: FontWeight.bold
                             ),
                           ),

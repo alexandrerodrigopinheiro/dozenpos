@@ -1,4 +1,5 @@
 import 'package:dozenpos/app/data/controllers/sale_controller.dart';
+import 'package:dozenpos/app/data/resources/constants_resource.dart';
 import 'package:dozenpos/app/ui/shared/sale/widgets/button_custom.dart';
 import 'package:dozenpos/app/ui/shared/sale/widgets/dialog_purchase_custom.dart';
 import 'package:dozenpos/app/ui/shared/sale/widgets/pickup_group_custom.dart';
@@ -30,12 +31,13 @@ class SalePage extends GetView<SaleController> {
                       ),
                       Container(
                         alignment: Alignment.center,
-                        child: const Text(
-                          'rapidinha',
-                          style: TextStyle(
-                              color: GlobalColor.primaryColor,
-                              fontSize: 35,
-                              fontWeight: FontWeight.bold),
+                        child: Text(
+                          ConstantsResource.appName.toUpperCase(),
+                          style: const TextStyle(
+                            color: GlobalColor.primaryColor,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold
+                          ),
                         ),
                       ),
                       Positioned(

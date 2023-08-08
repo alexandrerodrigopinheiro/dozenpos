@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 class GlobalColor {
-  static const primaryColor = Color(0XFFfc9360);
+  static const primaryColor = Color.fromARGB(255, 230, 84, 0);
   static const secondaryColor = Color(0XFF4f4f4f);
   static const colorDanger = Color(0XFFf44336);
   static const colorWarning = Color(0XFFff9800);
