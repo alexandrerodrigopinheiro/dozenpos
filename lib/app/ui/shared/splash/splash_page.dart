@@ -16,7 +16,7 @@ class SplashPage extends GetView<SplashController> {
   Widget build(BuildContext context) {
     Timer(const Duration(seconds: 2), () => Utils.goCleaning(Routes.login));
     return Scaffold(
-      backgroundColor: GlobalColor.primaryColor,
+      backgroundColor: Colors.white,
       body: Center(
         child: Text(
           ConstantsResource.appName.toUpperCase(),
